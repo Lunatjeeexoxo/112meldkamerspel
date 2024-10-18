@@ -3,50 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Bus Tracking</title>
-    <!-- Leaflet CSS voor de kaart -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <link rel="stylesheet" href="styles.css"> <!-- Link naar de externe CSS -->
+    <title>De Lijn Roleplay Dispatch</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<h1>Live Bus Tracking</h1>
-<p>De locatie van de bus wordt live bijgewerkt op de kaart.</p>
-<div id="map"></div>
-
-<!-- Leaflet JS voor de kaart -->
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-<script>
-    // Maak de kaart aan en stel de beginpositie en zoomniveau in
-    var map = L.map('map').setView([50.85045, 4.34878], 13);  // Beginpositie ingesteld op Brussel
-
-    // Voeg een basislaag toe (OpenStreetMap in dit geval)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19
-    }).addTo(map);
-
-    // Marker voor de bus (standaard positie)
-    var busMarker = L.marker([50.85045, 4.34878]).addTo(map)
-        .bindPopup('Bus Locatie')
-        .openPopup();
-
-    // Functie om de buspositie op te halen en bij te werken
-    function updateBusPosition() {
-        fetch('https://jouw-externe-server.com/getPosition')  // Vervang door je server URL
-            .then(response => response.json())
-            .then(data => {
-                // Update de markerpositie op de kaart
-                var newLatLng = new L.LatLng(data.x, data.z);  // x en z zijn de coördinaten in dit voorbeeld
-                busMarker.setLatLng(newLatLng);
-                map.setView(newLatLng, 13);  // Optioneel: verplaats de kaart mee
-            })
-            .catch(error => console.error('Fout bij het ophalen van buspositie:', error));
-    }
-
-    // Roep de updateBusPosition functie elke 5 seconden aan voor live updates
-    setInterval(updateBusPosition, 5000);
-</script>
-
+    <header>
+        <h1>De Lijn Roleplay Dispatch</h1>
+        <p>Welkom op de dispatch website voor De Lijn Roleplay!</p>
+    </header>
+    
+    <section>
+        <h2>Dispatch Functies</h2>
+        <p>Hier kun je de status van de bussen volgen, meldingen sturen naar chauffeurs, en routes beheren.</p>
+        <!-- Voeg hier dispatch functionaliteiten toe -->
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 De Lijn Roleplay</p>
+    </footer>
 </body>
 </html>
