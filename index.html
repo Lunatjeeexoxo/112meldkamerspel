@@ -3,95 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meldkamer</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Voeg hier je CSS-bestand toe -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-        }
-
-        nav a {
-            color: white;
-            padding: 14px 20px;
-            text-decoration: none;
-            text-align: center;
-        }
-
-        nav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            color: #333;
-        }
-
-        .melding {
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            background-color: #fafafa;
-        }
-    </style>
+    <title>De Lijn Roleplay - Dispatching</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Koppel het CSS-bestand -->
 </head>
 <body>
     <header>
-        <h1>Meldkamer</h1>
+        <h1>De Lijn Roleplay - Dispatching</h1>
     </header>
     <nav>
-        <a href="#meldingen">Meldingen</a>
-        <a href="#informatie">Informatie</a>
+        <a href="#actieve-ritten">Actieve Ritten</a>
+        <a href="#spelers-meldingen">Spelers Meldingen</a>
+        <a href="#kaart">Kaart</a>
+        <a href="#chat">Live Chat</a>
         <a href="#contact">Contact</a>
     </nav>
     <div class="container">
-        <section id="meldingen">
-            <h2>Laatste Meldingen</h2>
-            <div class="melding">
-                <strong>Melding 1:</strong> Er is een ongeval gebeurd op de A1. Hulpdiensten zijn onderweg.
+        <section id="actieve-ritten">
+            <h2>Actieve Ritten</h2>
+            <div class="rit">
+                <strong>Bus 1:</strong> Lijn 10 naar Hasselt - Status: Op tijd - Laatste locatie: Station.
             </div>
-            <div class="melding">
-                <strong>Melding 2:</strong> Brandmelding in een appartement aan de Hoofdstraat.
+            <div class="rit">
+                <strong>Bus 2:</strong> Lijn 347 naar Genk - Status: Vertraging (5 min) - Laatste locatie: Korteweg.
             </div>
-            <div class="melding">
-                <strong>Melding 3:</strong> Verlies van een kind in het park. Vraag om medewerking.
+            <div class="rit">
+                <strong>Bus 3:</strong> Lijn 1 naar Antwerpen - Status: Op tijd - Laatste locatie: Centraal plein.
+            </div>
+            <div class="rit">
+                <strong>Bus 4:</strong> Lijn 5 naar Brussel - Status: Aankomst op halte - Laatste locatie: Halte Markt.
             </div>
         </section>
 
-        <section id="informatie">
-            <h2>Informatie</h2>
-            <p>Welkom bij de meldkamer. Hier vindt u de laatste meldingen en informatie over incidenten.</p>
+        <section id="spelers-meldingen">
+            <h2>Spelers Meldingen</h2>
+            <div class="melding">
+                <strong>Speler 1:</strong> "Ik heb een probleem met mijn bus, kan iemand helpen?"
+            </div>
+            <div class="melding">
+                <strong>Speler 2:</strong> "Er is een ongeval gebeurd op de Lijn 5, verkeersdiensten zijn ingeschakeld."
+            </div>
+            <div class="melding">
+                <strong>Speler 3:</strong> "Ik ben op tijd aangekomen, klaar voor de volgende rit."
+            </div>
+            <div class="melding">
+                <strong>Speler 4:</strong> "Hulp nodig bij het tanken van mijn bus!"
+            </div>
+        </section>
+
+        <section id="kaart">
+            <h2>Kaart</h2>
+            <div class="kaart">
+                <!-- Dit is een placeholder voor de kaart -->
+                <p style="text-align: center; padding-top: 140px;">[Kaart wordt hier geladen]</p>
+            </div>
+        </section>
+
+        <section id="chat">
+            <h2>Live Chat</h2>
+            <div class="chat">
+                <div class="bericht"><strong>Dispatcher:</strong> Welkom bij de meldkamer! Hoe kan ik helpen?</div>
+                <div class="bericht"><strong>Speler 5:</strong> "Zijn er problemen met de Lijn 10?"</div>
+            </div>
+            <input type="text" class="chat-input" placeholder="Typ hier je bericht...">
         </section>
 
         <section id="contact">
             <h2>Contact</h2>
-            <p>Neem contact op via ons nummer: 112 of stuur een e-mail naar meldkamer@voorbeeld.nl.</p>
+            <p>Neem contact op via e-mail met dispatch@delijnroleplay.be.</p>
         </section>
     </div>
+    <footer>
+        &copy; 2024 De Lijn Roleplay - Alle rechten voorbehouden
+    </footer>
 </body>
 </html>
