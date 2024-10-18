@@ -13,13 +13,37 @@
     </header>
     
     <section>
-        <h2>Dispatch Functies</h2>
-        <p>Hier kun je de status van de bussen volgen, meldingen sturen naar chauffeurs, en routes beheren.</p>
-        <!-- Voeg hier dispatch functionaliteiten toe -->
+        <h2>Ritbeheer</h2>
+        <form id="ritbeheerForm">
+            <label for="busNummer">Busnummer:</label>
+            <input type="text" id="busNummer" name="busNummer" required><br>
+
+            <label for="routeNummer">Route:</label>
+            <select id="routeNummer" name="routeNummer">
+                <option value="Lijn1">Lijn 1</option>
+                <option value="Lijn2">Lijn 2</option>
+                <!-- Voeg meer routes toe -->
+            </select><br>
+
+            <button type="submit">Toewijzen</button>
+        </form>
+        <div id="statusBericht"></div>
     </section>
-    
+
+    <section>
+        <h2>Stuur melding</h2>
+        <form id="meldingForm">
+            <label for="bericht">Bericht:</label>
+            <textarea id="bericht" name="bericht" required></textarea><br>
+            <button type="submit">Versturen</button>
+        </form>
+        <div id="meldingStatus"></div>
+    </section>
+
     <footer>
         <p>&copy; 2024 De Lijn Roleplay</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
