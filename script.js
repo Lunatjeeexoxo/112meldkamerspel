@@ -55,7 +55,7 @@ document.getElementById('meldingForm').addEventListener('submit', function(event
     const ontvanger = document.getElementById('ontvanger').value;
 
     // Vervang met je eigen Discord Webhook URL
-    const webhookURL = 'https://discord.com/api/webhooks/YOUR_WEBHOOK_URL';
+    const webhookURL = 'https://discord.com/api/webhooks/1267134664657862747/EkYPkFmCPF1ZuokINrnA3VLygnt-9EEnBaOJbrPUob_8FrusKVGc7bGaQmQDBGCVHo5l';
 
     fetch(webhookURL, {
         method: 'POST',
