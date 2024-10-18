@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meldkamer</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Voeg hier je CSS-bestand toe -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .melding {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Meldkamer</h1>
+    </header>
+    <nav>
+        <a href="#meldingen">Meldingen</a>
+        <a href="#informatie">Informatie</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="container">
+        <section id="meldingen">
+            <h2>Laatste Meldingen</h2>
+            <div class="melding">
+                <strong>Melding 1:</strong> Er is een ongeval gebeurd op de A1. Hulpdiensten zijn onderweg.
+            </div>
+            <div class="melding">
+                <strong>Melding 2:</strong> Brandmelding in een appartement aan de Hoofdstraat.
+            </div>
+            <div class="melding">
+                <strong>Melding 3:</strong> Verlies van een kind in het park. Vraag om medewerking.
+            </div>
+        </section>
+
+        <section id="informatie">
+            <h2>Informatie</h2>
+            <p>Welkom bij de meldkamer. Hier vindt u de laatste meldingen en informatie over incidenten.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Neem contact op via ons nummer: 112 of stuur een e-mail naar meldkamer@voorbeeld.nl.</p>
+        </section>
+    </div>
+</body>
+</html>
