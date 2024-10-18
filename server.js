@@ -1,32 +1,25 @@
+// server.js
+
 const express = require('express');
-const http = require('http');
-const socketIo = require('socket.io');
-
 const app = express();
-const server = http.createServer(app);
-const io = socketIo(server);
 
-let meldingen = []; // Voor het opslaan van meldingen
+app.use(express.json());
 
-app.use(express.static('public'));
+let busPosition = { x: 0, y: 0, z: 0 };  // Opslag voor de buspositie
 
-// Socket.io voor realtime chat
-io.on('connection', (socket) => {
-    console.log('Een gebruiker is verbonden');
-
-    // Ontvang chatberichten
-    socket.on('chat bericht', (msg) => {
-        io.emit('chat bericht', msg); // Stuur het bericht naar alle clients
-    });
-
-    // Ontvang meldingen
-    socket.on('melding toevoegen', (melding) => {
-        meldingen.push(melding);
-        io.emit('melding toegevoegd', melding); // Stuur de melding naar alle clients
-    });
+// Ontvang de buspositie van Roblox
+app.post('/updatePosition', (req, res) => {
+    busPosition = req.body;  // Update de buspositie
+    console.log('Buspositie bijgewerkt:', busPosition);
+    res.status(200).send('Buspositie ontvangen');
 });
 
-const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
-    console.log(`Server luistert op poort ${PORT}`);
+// Verzend de buspositie naar de website
+app.get('/getPosition', (req, res) => {
+    res.json(busPosition);
+});
+
+// Start de server op poort 3000
+app.listen(3000, () => {
+    console.log('Server draait op poort 3000');
 });
