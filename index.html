@@ -3,80 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>De Lijn Roleplay - Dispatching</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Koppel het CSS-bestand -->
-    <!-- Leaflet CSS -->
+    <title>Meldkamer - De Lijn Roleplay</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
     <header>
-        <h1>De Lijn Roleplay - Dispatching</h1>
+        <h1>Meldkamer - De Lijn Roleplay</h1>
     </header>
-    <nav>
-        <a href="#actieve-ritten">Actieve Ritten</a>
-        <a href="#spelers-meldingen">Spelers Meldingen</a>
-        <a href="#kaart">Kaart</a>
-        <a href="#chat">Live Chat</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    <div class="container">
-        <section id="actieve-ritten">
-            <h2>Actieve Ritten</h2>
-            <div class="rit">
-                <strong>Bus 1:</strong> Lijn 10 naar Hasselt - Status: Op tijd - Laatste locatie: Station.
-            </div>
-            <div class="rit">
-                <strong>Bus 2:</strong> Lijn 347 naar Genk - Status: Vertraging (5 min) - Laatste locatie: Korteweg.
-            </div>
-            <div class="rit">
-                <strong>Bus 3:</strong> Lijn 1 naar Antwerpen - Status: Op tijd - Laatste locatie: Centraal plein.
-            </div>
-            <div class="rit">
-                <strong>Bus 4:</strong> Lijn 5 naar Brussel - Status: Aankomst op halte - Laatste locatie: Halte Markt.
-            </div>
-        </section>
 
-        <section id="spelers-meldingen">
-            <h2>Spelers Meldingen</h2>
-            <div class="melding">
-                <strong>Speler 1:</strong> "Ik heb een probleem met mijn bus, kan iemand helpen?"
-            </div>
-            <div class="melding">
-                <strong>Speler 2:</strong> "Er is een ongeval gebeurd op de Lijn 5, verkeersdiensten zijn ingeschakeld."
-            </div>
-            <div class="melding">
-                <strong>Speler 3:</strong> "Ik ben op tijd aangekomen, klaar voor de volgende rit."
-            </div>
-            <div class="melding">
-                <strong>Speler 4:</strong> "Hulp nodig bij het tanken van mijn bus!"
-            </div>
-        </section>
-
-        <section id="kaart">
-            <h2>Kaart</h2>
-            <div id="map"></div> <!-- Dit is de div voor de Leaflet kaart -->
-        </section>
-
+    <main>
+        <div id="map"></div>
+        
         <section id="chat">
             <h2>Live Chat</h2>
             <div class="chat">
-                <div class="bericht"><strong>Dispatcher:</strong> Welkom bij de meldkamer! Hoe kan ik helpen?</div>
-                <div class="bericht"><strong>Speler 5:</strong> "Zijn er problemen met de Lijn 10?"</div>
+                <div id="chat-berichten"></div>
             </div>
-            <input type="text" class="chat-input" placeholder="Typ hier je bericht...">
+            <input type="text" id="chat-input" class="chat-input" placeholder="Typ hier je bericht...">
+            <button id="chat-verzend">Verzend</button>
         </section>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Neem contact op via e-mail met dispatch@delijnroleplay.be.</p>
+        <section id="meldingen">
+            <h2>Meldingen Beheren</h2>
+            <input type="text" id="melding-input" placeholder="Voer melding in...">
+            <input type="number" id="lat-input" placeholder="Latitude">
+            <input type="number" id="lon-input" placeholder="Longitude">
+            <button id="melding-verzend">Voeg Melding Toe</button>
         </section>
-    </div>
-    <footer>
-        &copy; 2024 De Lijn Roleplay - Alle rechten voorbehouden
-    </footer>
+    </main>
 
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="script.js"></script> <!-- Koppel het JS-bestand -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
