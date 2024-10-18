@@ -31,3 +31,26 @@ footer {
     background-color: #0066cc;
     color: white;
 }
+
+label {
+    display: inline-block;
+    width: 100px;
+}
+
+input, select, textarea {
+    padding: 5px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+button {
+    background-color: #0066cc;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #004999;
+}
