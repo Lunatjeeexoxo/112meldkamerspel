@@ -25,9 +25,19 @@
                 <!-- Voeg meer routes toe -->
             </select><br>
 
+            <label for="chauffeur">Chauffeur:</label>
+            <input type="text" id="chauffeur" name="chauffeur" placeholder="Roblox Gebruikersnaam" required><br>
+
             <button type="submit">Toewijzen</button>
         </form>
         <div id="statusBericht"></div>
+    </section>
+
+    <section>
+        <h2>Actieve Routes</h2>
+        <div id="actieveRoutes">
+            <p>Geen actieve routes op dit moment.</p>
+        </div>
     </section>
 
     <section>
@@ -35,6 +45,8 @@
         <form id="meldingForm">
             <label for="bericht">Bericht:</label>
             <textarea id="bericht" name="bericht" required></textarea><br>
+            <label for="ontvanger">Ontvanger:</label>
+            <input type="text" id="ontvanger" name="ontvanger" placeholder="Roblox Gebruikersnaam" required><br>
             <button type="submit">Versturen</button>
         </form>
         <div id="meldingStatus"></div>
