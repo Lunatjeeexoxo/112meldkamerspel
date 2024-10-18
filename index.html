@@ -3,38 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meldkamer - De Lijn Roleplay</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Live Bus Tracking</title>
+    <!-- Leaflet CSS voor de kaart -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="styles.css"> <!-- Link naar de externe CSS -->
 </head>
 <body>
-    <header>
-        <h1>Meldkamer - De Lijn Roleplay</h1>
-    </header>
 
-    <main>
-        <div id="map"></div>
-        
-        <section id="chat">
-            <h2>Live Chat</h2>
-            <div class="chat">
-                <div id="chat-berichten"></div>
-            </div>
-            <input type="text" id="chat-input" class="chat-input" placeholder="Typ hier je bericht...">
-            <button id="chat-verzend">Verzend</button>
-        </section>
+<h1>Live Bus Tracking</h1>
+<p>De locatie van de bus wordt live bijgewerkt op de kaart.</p>
+<div id="map"></div>
 
-        <section id="meldingen">
-            <h2>Meldingen Beheren</h2>
-            <input type="text" id="melding-input" placeholder="Voer melding in...">
-            <input type="number" id="lat-input" placeholder="Latitude">
-            <input type="number" id="lon-input" placeholder="Longitude">
-            <button id="melding-verzend">Voeg Melding Toe</button>
-        </section>
-    </main>
+<!-- Leaflet JS voor de kaart -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="script.js"></script>
+<script>
+    // Maak de kaart aan en stel de beginpositie en zoomniveau in
+    var map = L.map('map').setView([50.85045, 4.34878], 13);  // Beginpositie ingesteld op Brussel
+
+    // Voeg een basislaag toe (OpenStreetMap in dit geval)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19
+    }).addTo(map);
+
+    // Marker voor de bus (standaard positie)
+    var busMarker = L.marker([50.85045, 4.34878]).addTo(map)
+        .bindPopup('Bus Locatie')
+        .openPopup();
+
+    // Functie om de buspositie op te halen en bij te werken
+    function updateBusPosition() {
+        fetch('https://jouw-externe-server.com/getPosition')  // Vervang door je server URL
+            .then(response => response.json())
+            .then(data => {
+                // Update de markerpositie op de kaart
+                var newLatLng = new L.LatLng(data.x, data.z);  // x en z zijn de coördinaten in dit voorbeeld
+                busMarker.setLatLng(newLatLng);
+                map.setView(newLatLng, 13);  // Optioneel: verplaats de kaart mee
+            })
+            .catch(error => console.error('Fout bij het ophalen van buspositie:', error));
+    }
+
+    // Roep de updateBusPosition functie elke 5 seconden aan voor live updates
+    setInterval(updateBusPosition, 5000);
+</script>
+
 </body>
 </html>
